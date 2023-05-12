@@ -8,18 +8,18 @@ void abertura() {
     return;
 }
 
-void chuta() {
+void chuta(char chutes[26], int* tentativas) {
     char chute;
     printf("Qual letra? ");
     scanf(" %c", &chute);
 
-    chutes[tentativas] = chute;
-    tentativas++;
+    chutes[(*tentativas)] = chute;
+    (*tentativas)++;
 }
 
 int main() {
     char palavrasecreta[20];
-    sprintf(palavrasecreta, "MELANCIA");
+    sprintf(palavrasecreta, "MELANCIA");¢
 
     int acertou = 0;
     int enforcou = 0;
@@ -48,7 +48,7 @@ int main() {
             }
         }
         printf("\n");
-        chuta();
+        chuta(chutes, &tentativas);
 
     } while (!acertou && !enforcou);
 
